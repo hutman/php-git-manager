@@ -7,6 +7,7 @@
 <form method=post action="index.php" id="form1">
 <input type="hidden" name="view" value="status" id="stat">
 <input type="text" class="form-control" name="message" placeholder="Enter your commit message here"><br>
+<input type="checkbox" name="push" value="pushit"> Push commit to origin server<br>
 <button type="button" id="add_and_commit" class="btn btn-primary">Add new files and commit</button>
 <button type="button" id="commit" class="btn btn-success">Commit changed files only</button>
 </form>

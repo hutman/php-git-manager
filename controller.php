@@ -13,6 +13,8 @@ include dirname(__FILE__)."/Git.php";
 if ($view != 'default')
 {
 	$repo = Git::open(REPO);
+        $repo->setenv('user.name',GIT_NAME); 
+        $repo->setenv('user.email',GIT_EMAIL); 
 }
 
 
@@ -27,7 +29,12 @@ switch ($view) {
 		
 	case "commit";
 		$message = ($_REQUEST['message'])?$_REQUEST['message']:'No Commit message supplied';
+		$active_branch = $repo->active_branch();
 		$out .= $repo->commit($message);
+		if ($_REQUEST['pushit'])
+		{
+			$out .= $repo->push('origin',$active_branch);
+		}
 		$view = "commit";
 	break;
 	
@@ -35,7 +42,18 @@ switch ($view) {
 		// do stuff if needed
 		if ($_POST['checkout'])
 		{
-			$repo->checkout($_POST['checkout']);	
+			$out = $repo->checkout($_POST['checkout']);	
+			$out .= $repo->status();
+		}		
+		if ($_POST['pull'])
+		{
+			$out = $repo->pull('origin',$_POST['pull']);	
+			$out .= $repo->status();
+		}		
+		if ($_POST['push'])
+		{
+			$out = $repo->push('origin',$_POST['push']);	
+			$out .= $repo->status();
 		}		
 		$branches = $repo->list_branches();
 		$active_branch = $repo->active_branch();
