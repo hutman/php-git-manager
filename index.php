@@ -1,4 +1,4 @@
-<?
+<?php
 // do a bunch of stuff
 include dirname(__FILE__)."/controller.php";
 ?>
@@ -36,7 +36,7 @@ body {
               <ul class="dropdown-menu">
                 <li><a href="?view=status">Status</a></li>
                 <li><a href="?view=branch">Branch</a></li>
-                <? if (defined('DEPLOY_SCRIPT')) { ?><li><a href="?view=deploy">Deploy</a></li><? } ?>         
+                <?php if (defined('DEPLOY_SCRIPT')) { ?><li><a href="?view=deploy">Deploy</a></li><?php } ?>         
               </ul>
             </li>
           </ul>
@@ -49,13 +49,13 @@ body {
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-      <? if ($message) { ?>
+      <?php if ($message) { ?>
       <div class="alert alert-dismissable alert-success">
   <button type="button" class="close" data-dismiss="alert">×</button>
-<?=$message?>
+<?php echo $message?>
 </div>
-     	<? } ?>
-      	<? include dirname(__FILE__)."/view." . $view . ".php"; ?>
+     	<?php } ?>
+      	<?php include dirname(__FILE__)."/view." . $view . ".php"; ?>
       </div>
 
     </div> <!-- /container -->

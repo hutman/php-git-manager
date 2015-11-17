@@ -8,9 +8,9 @@
 <div class="row">
 <div class="col-lg-6">
 <select class="form-control" name="deploy">
-<? foreach ($branches as $branch) { ?>
-<option value="<?=$branch?>"><?=$branch?></option>
-<? } ?>
+<?php foreach ($branches as $branch) { ?>
+<option value="<?php echo $branch?>"><?php echo $branch?></option>
+<?php } ?>
 </select>
 </div>
 <div class="col-lg-3">

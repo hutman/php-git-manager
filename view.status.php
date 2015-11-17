@@ -1,6 +1,6 @@
 <h1>Status</h1>
-<pre><?=$out?></pre>
-<? if (!stristr($out,'nothing to commit')) { ?>
+<pre><?php echo $out?></pre>
+<?php if (!stristr($out,'nothing to commit')) { ?>
 
 <h2>Commit changes</h2>
 <p>If you see any files that you don't want to add you should adjust your .gitignore file or remove unwanted files. Try not to check anything huge into the git repo and play nice.</p>
@@ -24,4 +24,4 @@ $(document).ready(function(){
 
 });
 </script>
-<? } ?>
+<?php } ?>

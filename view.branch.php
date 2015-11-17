@@ -1,20 +1,20 @@
-<h1>Active Branch: <?=$active_branch?></h1>
-<pre><?=$out?></pre>
+<h1>Active Branch: <?php echo $active_branch?></h1>
+<pre><?php echo $out?></pre>
 
 <table class="table table-striped">
 <thead><tr><th>Branch</th></tr></thead>
 <tbody>
-<? foreach ($branches as $branch) { ?>
+<?php foreach ($branches as $branch) { ?>
 <tr>
-<td><?=$branch?></td>
-<td><button class="btn btn-success checkout" rel="<?=$branch?>" >Checkout</button>
-<? if ($branch == $active_branch) { ?>
-<button class="btn btn-success pull" rel="<?=$branch?>" >Pull</button>
-<button class="btn btn-success push" rel="<?=$branch?>" >Push</button>
-<? } ?>
+<td><?php echo $branch?></td>
+<td><button class="btn btn-success checkout" rel="<?php echo $branch?>" >Checkout</button>
+<?php if ($branch == $active_branch) { ?>
+<button class="btn btn-success pull" rel="<?php echo $branch?>" >Pull</button>
+<button class="btn btn-success push" rel="<?php echo $branch?>" >Push</button>
+<?php } ?>
 </td>
 </tr>
-<? } ?>
+<?php } ?>
 </tbody>
 </table>
 <form method=post action="index.php" id="form1">

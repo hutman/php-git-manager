@@ -1,2 +1,2 @@
 <h1>Commit</h1>
-<pre><?=$out?></pre>
+<pre><?php echo $out?></pre>
